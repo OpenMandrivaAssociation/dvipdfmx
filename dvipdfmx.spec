@@ -4,14 +4,15 @@
 %define snapshot 20100328
 
 Name:           dvipdfmx
-Version:        0.%{snapshot}
-Release:        %mkrel 1
+Version:        0
+Release:        %mkrel 0.1.%{snapshot}
 Summary:        A DVI to PDF translator
 
 Group:          Publishing
 License:        GPLv2+
 URL:            http://project.ktug.or.kr/dvipdfmx/
 Source0:        http://project.ktug.or.kr/dvipdfmx/snapshot/latest/%{name}-%{snapshot}.tar.gz
+Patch0:		dvipdfmx-20100328-ebb-to-ebbx.patch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-buildroot
 
 BuildRequires:  kpathsea-devel libpng-devel zlib-devel libpaper-devel texlive-texmf
@@ -34,10 +35,11 @@ Hirata and its modified one, dvipdfm-kor, by Jin-Hwan Cho.
 
 %prep
 %setup -q -n %{name}-%{snapshot}
+%patch0 -p1
 
 %build
 %configure
-make %{?_smp_mflags}
+%make
 
 # create customized cid-x.map for dvipdfmx (#418091)
 cat <<EOF >> cid-x.map
