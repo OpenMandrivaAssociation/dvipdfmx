@@ -10,7 +10,7 @@ Summary:        A DVI to PDF translator
 
 Group:          Publishing
 License:        GPLv2+
-URL:            http://project.ktug.or.kr/dvipdfmx/
+URL:            https://project.ktug.or.kr/dvipdfmx/
 Source0:        http://project.ktug.or.kr/dvipdfmx/snapshot/latest/%{name}-%{snapshot}.tar.gz
 Patch0:		dvipdfmx-20100328-ebb-to-ebbx.patch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-buildroot
